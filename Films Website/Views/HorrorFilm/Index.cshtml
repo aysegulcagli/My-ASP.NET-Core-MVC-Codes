@@ -1,0 +1,89 @@
+﻿@model IEnumerable<NewFilms.Models.HorrorFilm>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Horror Films</h1>
+@if (TempData["keyMessage"] != null)
+{
+    <h2>@TempData["keyMessage"] </h2>
+
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-danger">
+        Create New  <span class="material-symbols-outlined">
+            add
+        </span>
+    </a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FilmName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imdb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleasedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeadActor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FilmName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Director)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imdb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleasedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeadActor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.FilmId" class="btn btn-primary">
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.FilmId" class="btn btn-info">
+                        <span class="material-symbols-outlined">
+                            info
+                        </span>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.FilmId" class="btn btn-secondary">
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

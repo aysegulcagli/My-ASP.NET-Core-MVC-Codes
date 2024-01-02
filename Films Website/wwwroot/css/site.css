@@ -1,0 +1,28 @@
+html {
+  font-size: 14px;
+  
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.photo{
+    margin-left: -100px;
+}
+.photo1 {
+    margin-left: 5px;
+}
+.photo2 {
+    margin-left: 50px;
+}
